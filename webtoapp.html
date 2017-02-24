@@ -50,7 +50,7 @@ else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
 {
  browserName = nAgt.substring(nameOffset,verOffset);
 }
-document.getElementById("myAnchor").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser="+browserName+";end;";
+document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser="+browserName+";end;";
 }
 </script>
 
