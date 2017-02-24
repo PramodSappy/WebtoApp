@@ -8,7 +8,7 @@
 <body>
 <h1 style="text-align:center";>Web to App demo</h1>
 <p style="text-align:center";>
-<a id="intent" href="">Click here to launch sample app</a>
+<a id="intent" href="">Click here to launch wallet application</a>
 <!-- <a href="intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser=chrome;end">Click here to launch sample app</a> -->
 </p>
 </body>
@@ -50,7 +50,8 @@ else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
 {
  browserName = nAgt.substring(nameOffset,verOffset);
 }
-document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser="+browserName+";end;";
+ var authToken = Math.floor(Math.random() * (999999 - 0) + 0)
+document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
 }
 myFunction();
 </script>
