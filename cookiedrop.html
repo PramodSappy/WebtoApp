@@ -10,6 +10,12 @@
  <a id="intent" href=""> </a>
 </body>
 <script>
+function setCookie(dname,dvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = dname + "=" + dvalue + ";" + expires + ";path=/";
+}
 var counter = 0;
 var interval = setInterval(function() {
     counter++;
@@ -18,6 +24,7 @@ var interval = setInterval(function() {
     if (counter == 5) {
         // Display a login box 
         console.log('countdown stop..');
+	setCookie("domainName", "rawgit.com", 30);
         var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
         var browserName = 'Chrome';
       	document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;"; 
