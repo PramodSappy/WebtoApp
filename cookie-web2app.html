@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testing App to web </title>
+</head>
+
+<body>
+ <h1 style="text-align:center";>Cookie drop</h1>
+<p style="text-align:center";>
+ <a id="intent" href="">Click here to launch wallet application</a>
+<!-- <a href="intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser=chrome;end">Click here to launch sample app</a> -->
+</p>
+</body>
+<script type="text/javascript">
+
+function setCookie(dname,dvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = dname + "=" + dvalue + ";" + expires + ";path=/";
+}
+
+function myFunction() {
+var nVer = navigator.appVersion;
+var nAgt = navigator.userAgent;
+var browserName  = navigator.appName;
+// In Opera 15+, the true version is after "OPR/" 
+if ((verOffset=nAgt.indexOf("OPR/"))!=-1) {
+ browserName = "Opera";
+}
+// In older Opera, the true version is after "Opera" or after "Version"
+else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+ browserName = "Opera";
+}
+// In MSIE, the true version is after "MSIE" in userAgent
+else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+ browserName = "Microsoft Internet Explorer";
+}
+// In Chrome, the true version is after "Chrome" 
+else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+ browserName = "Chrome";
+}
+// In Safari, the true version is after "Safari" or after "Version" 
+else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+ browserName = "Safari";
+}
+// In Firefox, the true version is after "Firefox" 
+else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+ browserName = "Firefox";
+}
+// In most other browsers, "name/version" is at the end of userAgent 
+else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+          (verOffset=nAgt.lastIndexOf('/')) ) 
+{
+ browserName = nAgt.substring(nameOffset,verOffset);
+}
+setCookie("domainName", "Tier - 1", 30);
+ var authToken = Math.floor(Math.random() * (999999 - 0) + 0)
+document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
+}
+myFunction();
+</script>
+
+</html>
