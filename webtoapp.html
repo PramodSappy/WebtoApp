@@ -48,7 +48,7 @@ else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
  browserName = nAgt.substring(nameOffset,verOffset);
 }
  var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
- var jsonResponse ={
+ var jsonRes ={
     "amount": "2000.00",
         "cartId": "cartId",
         "isShippingDestinationRequire": false,
@@ -79,7 +79,7 @@ else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
         }
   };
 
-document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";S.json="+JSON.stringify(jsonResponse)+";end;";
+document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";S.jsonResponse="+JSON.stringify(jsonRes)+";end;";
 }
 myFunction();
 function backgroundChange(){
