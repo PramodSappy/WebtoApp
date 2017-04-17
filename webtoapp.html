@@ -13,16 +13,13 @@
 </p>
 </body>
 <script type="text/javascript">
-
 function myFunction() {
 var nVer = navigator.appVersion;
 var nAgt = navigator.userAgent;
 var browserName  = navigator.appName;
-
 // In Opera 15+, the true version is after "OPR/" 
 if ((verOffset=nAgt.indexOf("OPR/"))!=-1) {
  browserName = "opera";
-
 }
 // In older Opera, the true version is after "Opera" or after "Version"
 else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
@@ -50,8 +47,39 @@ else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
 {
  browserName = nAgt.substring(nameOffset,verOffset);
 }
- var authToken = Math.floor(Math.random() * (999999 - 0) + 0)
-document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
+ var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
+ var jsonResponse ={
+    "amount": "2000.00",
+        "cartId": "cartId",
+        "isShippingDestinationRequire": false,
+        "allowedCardList": [{"cardType": "VISA"}, {"cardType": "AMEX"}],
+        "merchantLocale": "en-US",
+        "checkoutId": "checkoutId",
+        "cryptogramType": "NONE",
+        "CheckoutAmount": {
+            "total": "long number",
+            "currencyLocale": "en-US"
+        },
+        "CheckoutSummaryItem": {
+            "Amount": {
+                "total": "long number",
+                "currencyLocale": "en-US"
+            },
+            "label": "Item Label"
+        },
+        "ShippingSummaryItem": {
+            "Amount": {
+                "total": "long number",
+                "currencyLocale": "en-US"
+            },
+            "label": "Item Label"
+        },
+        "cryptogram": {
+            "cryptogramType": "ICC"
+        }
+  };
+
+document.getElementById("intent").href = "intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";S.json="+JSON.stringify(jsonResponse)+";end;";
 }
 myFunction();
 function backgroundChange(){
