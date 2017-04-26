@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testing App to web </title>
+</head>
+
+<body>
+ <h1 style="text-align:center";>Web to App demo</h1>
+<p style="text-align:center";>
+ <a id="intent" onclick="backgroundChange()" href="">Click here to launch wallet application</a>
+<!-- <a href="intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser=chrome;end">Click here to launch sample app</a> -->
+</p>
+</body>
+<script type="text/javascript">
+function myFunction() {
+var nVer = navigator.appVersion;
+var nAgt = navigator.userAgent;
+var browserName  = navigator.appName;
+// In Opera 15+, the true version is after "OPR/" 
+if ((verOffset=nAgt.indexOf("OPR/"))!=-1) {
+ browserName = "opera";
+}
+// In older Opera, the true version is after "Opera" or after "Version"
+else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+ browserName = "opera";
+}
+// In MSIE, the true version is after "MSIE" in userAgent
+else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+ browserName = "microsoft internet explorer";
+}
+// In Chrome, the true version is after "Chrome" 
+else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+ browserName = "chrome";
+}
+// In Safari, the true version is after "Safari" or after "Version" 
+else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+ browserName = "safari";
+}
+// In Firefox, the true version is after "Firefox" 
+else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+ browserName = "firefox";
+}
+// In most other browsers, "name/version" is at the end of userAgent 
+else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+          (verOffset=nAgt.lastIndexOf('/')) ) 
+{
+ browserName = nAgt.substring(nameOffset,verOffset);
+}
+ var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
+ var jsonRes ={
+    "amount": "2000.00",
+        "cartId": "cartId",
+        "isShippingDestinationRequire": false,
+        "allowedCardList": [{"cardType": "VISA"}, {"cardType": "AMEX"}],
+        "merchantLocale": "en-US",
+        "checkoutId": "checkoutId",
+        "cryptogramType": "NONE",
+        "CheckoutAmount": {
+            "total": "long number",
+            "currencyLocale": "en-US"
+        },
+        "CheckoutSummaryItem": {
+            "Amount": {
+                "total": "long number",
+                "currencyLocale": "en-US"
+            },
+            "label": "Item Label"
+        },
+        "ShippingSummaryItem": {
+            "Amount": {
+                "total": "long number",
+                "currencyLocale": "en-US"
+            },
+            "label": "Item Label"
+        },
+        "cryptogram": {
+            "cryptogramType": "ICC"
+        }
+  };
+document.getElementById("intent").href = "intent:#Intent;action=com.mastercard.mp.wallet.bankoo;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";S.jsonResponse="+JSON.stringify(jsonRes)+";end;";
+}
+myFunction();
+function backgroundChange(){
+	document.body.style.backgroundColor="#bdbdbd"
+}
+</script>
+
+</html>
