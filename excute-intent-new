@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing App to web </title>
+</head>
+
+<body>
+  <h1 style="text-align:center";>Web to App demo</h1>
+  <p style="text-align:center";>
+    <a id="intent" onclick="backgroundChange()" href="">Click here to launch wallet application</a>
+    <!-- <a href="intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.browser=chrome;end">Click here to launch sample app</a> -->
+  </p>
+</body>
+<script type="text/javascript">
+function backgroundChange(){
+  // document.body.style.backgroundColor="#bdbdbd"
+  document.getElementById("intent").href = "intent:#Intent;action=com.android.chrome;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.Browser.EXTRA_APPLICATION_ID=com.dac.app;end;";
+  document.getElementById("intent").href = "intent:#Intent;action=com.dac.app;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;end;";
+}
+</script>
+
+</html>
