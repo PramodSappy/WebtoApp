@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  p {
+    text-align: center;
+    font-size: 60px;
+  }
+  </style>
+  <title>Index Page</title>
+</head>
+<body>
+    <h1 style="text-align:center";>Intent Execute..</h1>
+    <p id="demo" style="text-align:center";>
+          <a id="intent" onclick="backgroundChange()" href=""> Click here to launch wallet application </a>
+    </p>
+</body>
+<script>
+    function backgroundChange(){
+        var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
+        var browserName = 'Chrome';
+        document.getElementById("intent").href = "intent:#Intent;action=com.android.chrome;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.Browser.EXTRA_APPLICATION_ID=com.dac.app;end;";
+        document.getElementById("intent").href = "intent:#Intent;action=com.dac.app;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
+        document.getElementById("intent").click();
+    }
+</script>
+</html>
