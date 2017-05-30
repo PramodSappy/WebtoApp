@@ -23,13 +23,13 @@ var interval = setInterval(function() {
   // Display 'counter' wherever you want to display it.
   document.getElementById("demo").innerHTML =counter;
   console.log('Test countdown..');
-  if (counter == 5) {
+  if (counter == 10) {
     // Display a login box
     console.log('countdown stop..');
     var authToken = Math.floor(Math.random() * (999999 - 0) + 0);
     var browserName = 'Chrome';
-    document.getElementById("intent").href = "intent:#Intent;action=com.android.chrome;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.Browser.EXTRA_APPLICATION_ID=com.dac.app;end;";
-    document.getElementById("intent").href = "intent:#Intent;action=com.dac.app;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
+//     document.getElementById("intent").href = "intent:#Intent;action=com.android.chrome;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.Browser.EXTRA_APPLICATION_ID=com.dac.app;end;";
+    document.getElementById("intent").href = "intent:#Intent;action=com.grafixartist.marshmallowsample;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;S.authToken="+authToken+";S.status=success;S.browser="+browserName+";end;";
     document.getElementById("intent").click();
     clearInterval(interval);
     return false;
